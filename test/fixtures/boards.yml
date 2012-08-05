@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  url: b
+  desc: Random
+  rules: qweqwe
+  type: 1
+  hidden: false
+
+two:
+  id: 1
+  url: MyString
+  desc: MyString
+  rules: MyString
+  type: 1
+  hidden: false
