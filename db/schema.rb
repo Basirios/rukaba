@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120804201547) do
+ActiveRecord::Schema.define(:version => 20120806184318) do
 
   create_table "boards", :force => true do |t|
     t.string   "url"
@@ -30,6 +30,19 @@ ActiveRecord::Schema.define(:version => 20120804201547) do
     t.boolean  "pinned"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "posts", :force => true do |t|
+    t.integer  "flow_id"
+    t.integer  "local"
+    t.string   "subj"
+    t.string   "name"
+    t.string   "tripcode"
+    t.text     "body"
+    t.boolean  "deleted"
+    t.string   "replyed"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

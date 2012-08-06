@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  flow_id: 1
+  local: 1
+  subj: MyString
+  name: MyString
+  tripcode: MyString
+  body: MyText
+  deleted: false
+  replyed: MyString
+
+two:
+  id: 1
+  flow_id: 1
+  local: 1
+  subj: MyString
+  name: MyString
+  tripcode: MyString
+  body: MyText
+  deleted: false
+  replyed: MyString
