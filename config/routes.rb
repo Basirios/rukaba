@@ -1,4 +1,14 @@
 Rukaba::Application.routes.draw do
+  get "post/new"
+
+  get "post/show"
+
+  get "post/delete"
+
+  get "post/modify"
+  
+  get "post/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
