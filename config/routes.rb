@@ -1,4 +1,8 @@
 Rukaba::Application.routes.draw do
+  get "board/index"
+
+  get "board/show"
+
   get "post/new"
 
   get "post/show"
