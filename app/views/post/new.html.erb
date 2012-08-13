@@ -1,2 +1,13 @@
-<h1>Post#new</h1>
-<p>Find me in app/views/post/new.html.erb</p>
+﻿<%= form_tag({:controller => "post", :action => "new"}, :method => "post", :class => "post_form") do %>
+<table id="postform">
+	<tbody id="usrFlds" style="">
+		<tr><td class="label"><%= label_tag(:name, "Name") %></td><td><%= text_field_tag(:name, "", :size=>36) %></td></tr>
+		<tr><td class="label"><%= label_tag(:email, "E-mail") %></td><td><%= text_field_tag(:email, "", :size=>36) %></td></tr>
+		<tr><td class="label"><%= label_tag(:subject, "Subject") %></td><td><%= text_field_tag(:subject, "", :maxlength=>60) %><%= submit_tag("Send") %></td></tr>
+		<tr><td class="label"><%= label_tag(:message, "Message") %></td><td><%= text_area_tag(:message, "", :size => "48x4") %></textarea></td></tr>
+		<tr><td class="label"><%= label_tag(:file, "File") %></td><td><%= file_field_tag(:file) %></td></tr>
+		<tr><td class="postblock"><%= label_tag(:captcha, "Captcha") %></td><td><%= text_field_tag(:captcha, "", :size=>10) %> <img alt="" src="/d/captcha.pl?key=mainpage&amp;dummy="> </td></tr>
+		<tr><td class="postblock"><%= label_tag(:password, "Password") %></td><td><%= password_field_tag(:password, "", :size=>8) %> (чтобы удалить пост или файл)</td></tr>
+	</tbody>
+</table>
+<% end %>
