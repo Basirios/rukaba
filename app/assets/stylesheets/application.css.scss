@@ -1,0 +1,68 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+ body {
+	/*margin:50px 0px; padding:0px;*/
+	/*text-align:center;*/
+	webkit-border-radius: 5px;
+	background-color: #212121;
+	color: #698CC0;
+}
+ .post_form {
+	width:600px;
+	margin:0px auto;
+	text-align:left;
+	padding:15px;
+	border: 2px solid #545454;
+	-webkit-border-radius: 5px;
+}
+input,textarea {
+	background-color:#111;
+	border: 2px solid #545454;
+	-webkit-border-radius: 5px;
+	color: #698CC0;
+	-webkit-appearance: none;
+}
+.post {
+	-webkit-border-radius: 5px;
+	border: 2px solid #545454;
+	background-color: #2C2C2C;
+	min-width: 35em;
+	overflow: visible;
+	margin: 4px 0;
+	word-wrap: break-word;
+}
+.del_form {
+	display: inline;
+}
+.post_subj {
+background: inherit;
+font-size: 1.2em;
+color: #3941AC;
+font-weight: bold;
+}
+.post_name {
+color: #B4B9CD;
+font-weight: bold;
+}
+.post_trip {
+color: #AFA;
+font-weight: bold;
+}
+.post_id {
+color: #C9BE89;
+}
+a {
+color: #C9BE89;
+}
+

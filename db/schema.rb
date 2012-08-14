@@ -11,16 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120806184318) do
+ActiveRecord::Schema.define(:version => 20120814132800) do
 
   create_table "boards", :force => true do |t|
     t.string   "url"
     t.string   "desc"
     t.string   "rules"
-    t.integer  "type"
+    t.integer  "kind"
     t.boolean  "hidden"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "flows", :force => true do |t|
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(:version => 20120806184318) do
     t.string   "replyed"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "email"
+    t.string   "pass"
   end
 
 end

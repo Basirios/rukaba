@@ -1,4 +1,4 @@
 class Post < ActiveRecord::Base
-  attr_accessible :body, :deleted, :flow_id, :id, :local, :name, :replyed, :subj, :tripcode, :created_at
+  attr_accessible  :id, :body, :deleted, :flow_id, :local, :name, :replyed, :subj, :tripcode, :created_at, :email, :pass
   belongs_to :flow
 end

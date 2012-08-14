@@ -3,5 +3,7 @@ class BoardController < ApplicationController
   end
 
   def show
+	@params = params
+	@target = "/flow/new"
   end
 end

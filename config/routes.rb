@@ -1,9 +1,19 @@
 Rukaba::Application.routes.draw do
+  get "flow/index"
+
+  post "flow/new"
+
+  get "flow/show"
+
+  get "flow/modify"
+
+  get "flow/delete"
+
   get "board/index"
 
   get "board/show"
 
-  get "post/new"
+  post "post/new"
 
   get "post/show"
 
@@ -12,6 +22,12 @@ Rukaba::Application.routes.draw do
   get "post/modify"
   
   get "post/index"
+  
+  get ":board/res/:flow" => "Flow#show"
+  
+  get ":board/:page" => "board#show"
+  
+  get ":board/" => "board#show"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
