@@ -28,6 +28,14 @@ Rukaba::Application.routes.draw do
   get ":board/:page" => "board#show"
   
   get ":board/" => "board#show"
+  
+	resources :flows do
+		resources :post
+	end
+
+	
+	post "/flows/:flow/posts" => "post#new"
+	post "/boards/:url/flows" => "flow#new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

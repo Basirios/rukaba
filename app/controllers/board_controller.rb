@@ -3,7 +3,10 @@ class BoardController < ApplicationController
   end
 
   def show
-	@params = params
-	@target = "/flow/new"
+ 	@params = params
+	@board = Board.where(:url=>params[:board]).first
+	@target = "/boards/#{params[:board]}/flows"
+	@flows = @board.flows.order("local")
+	@i = 1
   end
 end

@@ -1,15 +1,13 @@
 ﻿<%= form_tag(@target, :method => "post", :class => "post_form") do %>
 <table id="postform">
 	<tbody id="usrFlds" style="">
-		<tr><td class="label"><%= label_tag(:name, "Name") %></td><td><%= text_field_tag(:name, "", :size=>36) %></td></tr>
-		<tr><td class="label"><%= label_tag(:email, "E-mail") %></td><td><%= text_field_tag(:email, "", :size=>36) %></td></tr>
-		<tr><td class="label"><%= label_tag(:subject, "Subject") %></td><td><%= text_field_tag(:subject, "", :maxlength=>60) %><%= submit_tag("Send") %></td></tr>
-		<tr><td class="label"><%= label_tag(:message, "Message") %></td><td><%= text_area_tag(:message, "", :size => "48x4") %></td></tr>
-		<tr><td class="label"><%= label_tag(:file, "File") %></td><td><%= file_field_tag(:file) %></td></tr>
-		<tr><td class="postblock"><%= label_tag(:captcha, "Captcha") %></td><td><%= text_field_tag(:captcha, "", :size=>10) %> </td></tr>
-		<tr><td class="postblock"><%= label_tag(:password, "Password") %></td><td><%= password_field_tag(:password, "", :size=>8) %> (чтобы удалить пост или файл)</td></tr>
+		<tr><td class="label"><%= label_tag("post[name]", "Name") %></td><td><%= text_field_tag("post[name]", "", :size=>36) %></td></tr>
+		<tr><td class="label"><%= label_tag("post[email]", "E-mail") %></td><td><%= text_field_tag("post[email]", "", :size=>36) %></td></tr>
+		<tr><td class="label"><%= label_tag("post[subj]", "Subject") %></td><td><%= text_field_tag("post[subj]", "", :maxlength=>60) %><%= submit_tag("Send") %></td></tr>
+		<tr><td class="label"><%= label_tag("post[body]", "Message") %></td><td><%= text_area_tag("post[body]", "", :size => "48x4") %></td></tr>
+		<tr><td class="label"><%= label_tag("post[file]", "File") %></td><td><%= file_field_tag("post[file]") %></td></tr>
+		<tr><td class="postblock"><%= label_tag("captcha", "Captcha") %></td><td><%= text_field_tag("captcha", "", :size=>10) %> </td></tr>
+		<tr><td class="postblock"><%= label_tag("post[pass]", "Password") %></td><td><%= password_field_tag("post[pass]", "", :size=>8) %> (чтобы удалить пост или файл)</td></tr>
 	</tbody>
 </table>
-		<%= hidden_field_tag(:board, @params[:board]) %>
-		<%= hidden_field_tag(:flow, @params[:flow]) %>
 <% end %>

@@ -1,15 +1,20 @@
 class PostController < ApplicationController
   def new
-	@params = params
-	@flow = Flow.find(params[:flow])
-	@board = @flow.board
-	@cnt = @board.posts.count+1
-	@p = @flow.posts.create(:name=>params[:name], :subj=>params[:subject], :email=>params[:email], :body=>params[:message], :pass=>params[:password], :local=>@cnt)
+	@f = Flow.find(params[:flow])
+	@board = @f.board
+	params[:post][:local] = @board.posts.count+1
+	@p = @f.posts.build(params[:post])
 	@p.save
 	redirect_to :back
 	
   end
 
+  # def create
+	#@f = Flow.find(params[:flow])
+	#@p = @f.posts.build(params[:post])
+	#@p.save
+	#redirect_to :back
+  #end
   def show
   end
 
@@ -21,4 +26,5 @@ class PostController < ApplicationController
 
   def index
   end
+ 
 end

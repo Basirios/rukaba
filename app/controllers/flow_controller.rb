@@ -10,8 +10,9 @@ class FlowController < ApplicationController
 
   def show
   	@params = params
-	@target = "/post/new"
-	@posts = Post.all
+	@flow = Flow.find(params[:flow])
+	@target = flow_posts_url(@flow)
+	@posts = @flow.posts.order("local")
 	@i = 1
   end
 
