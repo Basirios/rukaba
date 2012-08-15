@@ -3,14 +3,14 @@
 	<%= form_tag(@target, :method => "post", :class => "del_form") do %>
 		<% @posts.each do |post| %>
 			<% if @i==1 then %>
-		<div id="post_<%= post.id %>" class="oppost">
+		<div id="post_<%= post.local %>" class="oppost">
 		<span class="post_subj"><%= post.subj %></span>&nbsp;
 		<span class="post_name"><%= post.name %></span>&nbsp;
 		<span class="post_trip"><%= post.tripcode %></span>&nbsp;<span class="post_date"><%= post.created_at %></span>
 		<span class="post_local"><%= @i %></span>
-		<span class="post_id"><a href="/b/res/33171350.html#i33171350">№<%= post.id %></a>&nbsp;
+		<span class="post_id"><a href="/b/res/33171350.html#<%= post.local %>№<%= post.local %></a>&nbsp;
 		<br class="turnmeoff"><br class="turnmeoff"></span><br><a id="33171350"></a>
-		<blockquote id="m<%= post.id %>" class="postMessage"><p><%= post.body %></p></blockquote>	
+		<blockquote id="m<%= post.local %>" class="postMessage"><p><%= post.body %></p></blockquote>	
 		</div>
 		
 				<% else %>
@@ -19,8 +19,8 @@
 	<div class="post" >
 	<span class="post_subj"><%= post.subj %></span> <span class="post_name"><%= post.name %></span> <span class="post_trip"><%= post.tripcode %></span>
 	 <span class="post_date"><%= post.created_at %></span> <span class="post_local"><%= @i %></span>
-	 <span class="post_id"><a href="#">№<%= post.id %></a></span><br/>
-	 <blockquote id="m<%= post.id %>" class="postMessage"><p><%= post.body %></blockquote>
+	 <span class="post_id"><a href="#">№<%= post.local %></a></span><br/>
+	 <blockquote id="m<%= post.local %>" class="postMessage"><p><%= post.body %></blockquote>
 	</div>
 	
 			
