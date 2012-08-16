@@ -8,7 +8,32 @@
 </head>
 <body>
 
+	[
+	<% @boards.each do |board| %>
+		<% if board == @boards.first %>
+			<a href="/<%= board.url %>/" title="<%= board.desc %>"><%= board.url %></a>
+		<% else %>
+			/
+			<a href="/<%= board.url %>/" title="<%= board.desc %>"><%= board.url %></a>
+		<% end %>
+	<% end %>
+	]
+
 <%= yield %>
 
+
+	[
+	<% @boards.each do |board| %>
+		<% if board == @boards.first %>
+			<a href="/<%= board.url %>/" title="<%= board.desc %>"><%= board.url %></a>
+		<% else %>
+			/
+			<a href="/<%= board.url %>/" title="<%= board.desc %>"><%= board.url %></a>
+		<% end %>
+	<% end %>
+	]
+	
+	
+	
 </body>
 </html>
