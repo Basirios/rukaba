@@ -9,17 +9,26 @@
 				<hr>
 			<div id="post_<%= post.local %>" class="oppost">
 			<span class="post_subj"><%= post.subj %></span>&nbsp;
-			<span class="post_name"><%= post.name %></span>&nbsp;
+			<span class="post_name">
+		<% if post.email == "" then %>
+			<%= post.name %>
+		<% else %>
+			<a href="mailto:
+			<%= post.email %>
+			">
+			<%= post.name %></a>
+		<% end %>
+			</span>&nbsp;
 			<span class="post_trip"><%= post.tripcode %></span>&nbsp;<span class="post_date"><%= post.created_at %></span>
-			<span class="post_id"><a href="/b/res/<%= post.flow.id %>.html#<%= post.local %>">№<%= post.local %></a></span> [<a class="orange" href="/<%= params[:board] %>/res/<%= post.flow_id %>.html">Ответ</a>]<br>
-			<blockquote id="m<%= post.local %>" class="postMessage"><p><%= post.body %></p></blockquote>	
+			<span class="post_id"><a href="/<%= post.flow.board.url %>/res/<%= post.flow.local %>#<%= post.local %>">№<%= post.local %></a></span> [<a class="orange" href="/<%= params[:board] %>/res/<%= post.flow.local %>">Ответ</a>]<br>
+			<blockquote id="m<%= post.local %>" class="postMessage"><p><%= raw post.body %></p></blockquote>	
 			</div>
 					<% else %>
 			<div class="post" >
 		<span class="post_subj"><%= post.subj %></span> <span class="post_name"><%= post.name %></span> <span class="post_trip"><%= post.tripcode %></span>
 		<span class="post_date"><%= post.created_at %></span> 
 		<span class="post_id"><a href="#">№<%= post.local %></a></span><br/>
-		<blockquote id="m<%= post.local %>" class="postMessage"><p><%= post.body %></blockquote>
+		<blockquote id="m<%= post.local %>" class="postMessage"><p><%= raw post.body %></blockquote>
 		</div>
 			<% end %>
 			<% @i+=1 %>
@@ -35,19 +44,41 @@
 				<hr>
 			<div id="post_<%= @oppost[:local] %>" class="oppost">
 			<span class="post_subj"><%= @oppost[:subj] %></span>&nbsp;
-			<span class="post_name"><%= @oppost[:name] %></span>&nbsp;
+			<span class="post_name">
+			
+		<% if @oppost[:emal] == "" then %>
+			<%= @oppost[:name] %>
+		<% else %>
+			<a href="mailto:
+			<%= @oppost[:email] %>
+			">
+			<%= @oppost[:name] %></a>
+		<% end %>
+			
+			</span>&nbsp;
 			<span class="post_trip"><%= @oppost[:tripcode] %></span>&nbsp;<span class="post_date"><%= @oppost[:created_at] %></span>
-			<span class="post_id"><a href="/b/res/<%= @oppost.flow.id %>.html#<%= @oppost[:local] %>">№<%= @oppost[:local] %></a></span> [<a class="orange" href="/<%= params[:board] %>/res/<%= @oppost[:flow_id] %>.html">Ответ</a>]<br>
+			<span class="post_id"><a href="/<%= @oppost.flow.board[:url] %>/res/<%= @oppost.flow.local %>#<%= @oppost[:local] %>">№<%= @oppost[:local] %></a></span> [<a class="orange" href="/<%= params[:board] %>/res/<%= @oppost.flow[:local] %>">Ответ</a>]<br>
 			<blockquote id="m<%= @oppost[:local] %>" class="postMessage"><p><%= @oppost[:body] %></p></blockquote>	
 			</div>
 				Пропущено <%= @gposts.where(:flow_id=>flow.id).count %> постов.
 				<% @posts.each do |post| %>
 				<% @i+=1 %>
 			<div class="post" >
-			<span class="post_subj"><%= post.subj %></span> <span class="post_name"><%= post.name %></span> <span class="post_trip"><%= post.tripcode %></span>
+			<span class="post_subj"><%= post.subj %></span> <span class="post_name">
+			
+		<% if post.email == "" then %>
+			<%= post.name %>
+		<% else %>
+			<a href="mailto:
+			<%= post.email %>
+			">
+			<%= post.name %></a>
+		<% end %>
+			
+			</span> <span class="post_trip"><%= post.tripcode %></span>
 			<span class="post_date"><%= post.created_at %></span> 
 			<span class="post_id"><a href="#">№<%= post.local %></a></span><br/>
-			<blockquote id="m<%= post.local %>" class="postMessage"><p><%= post.body %></blockquote>
+			<blockquote id="m<%= post.local %>" class="postMessage"><p><%= raw post.body %></blockquote>
 			</div>
 			
 			<% end %>
@@ -61,6 +92,11 @@
 	<% end %>
 	<% end %>
 	<% Flow.pgcount.times do |f|%>
+		<% if params[:page] == f+1 then %>
+		[<%= f+1 %>]
+
+		<% else %>
 		[<%= link_to f+1, "/#{params[:board]}/#{f+1}" %>]
+		<% end %>
 	<% end %>
 </div>

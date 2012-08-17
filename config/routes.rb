@@ -34,7 +34,7 @@ Rukaba::Application.routes.draw do
 	end
 
 	
-	post "/flows/:flow/posts" => "post#new"
+	post "/boards/:board/flows/:flow/posts" => "post#new"
 	post "/boards/:url/flows" => "flow#new"
 
   # The priority is based upon order of creation:

@@ -1,7 +1,9 @@
 class PostController < ApplicationController
   def new
-	@f = Flow.find(params[:flow])
-	@board = @f.board
+  
+	@board = Board.where(:url=>params[:board]).first
+	@f = @board.flows.where(:local=>params[:flow]).first
+	
 	params[:post][:local] = @board.posts.count+1
 	@p = @f.posts.build(params[:post])
 	@p.save
